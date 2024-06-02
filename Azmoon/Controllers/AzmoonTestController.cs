@@ -18,7 +18,5 @@ namespace Azmoon.Controllers
             var result = _db.TblApplicants.ToList();
             return View(result);
         }
-
-       
     }
 }

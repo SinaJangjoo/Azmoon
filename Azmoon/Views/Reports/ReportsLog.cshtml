@@ -1,4 +1,6 @@
-﻿@{
+﻿@using Azmoon.ViewModels
+@model ReportsViewModel
+@{
     var title = TempData["Title"] as string;
 
     var intId = ViewBag.tempdataId as List<int>;
@@ -35,6 +37,7 @@
         combinedList.AddRange(stringEmail.Select(i => i.ToString()));
     }
 }
+
 <body>
 
     <div class="card-header bg-secondary bg-gradient m-lg-0 py-3">
@@ -45,7 +48,7 @@
     <div class="container row mt-4 mb-4">
             <div class="col-6">
                 <span>Title:</span>
-                <input class="border" value="@title" readonly> </input>
+                <input class="border" value="@Model.Title" readonly> </input>
             </div>
             <div class="col-6">
                 <select class="container">

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Azmoon.ViewModels;
+using Microsoft.AspNetCore.Mvc;
 using Stimulsoft.Report;
 using Stimulsoft.Report.Mvc;
 
@@ -19,29 +20,37 @@ namespace Azmoon.Controllers
            List<string> selectedLName, List<string> selectedPostalCode, List<string> selectedTel,
            List<string> selectedEmail, string title)
         {
-            var str1 = ViewBag.tempdataId = TempData["Id"] = selectedId;
-            var str2 = ViewBag.tempdataFName = TempData["FirstName"] = selectedFName;
-            var str3 = ViewBag.tempdataLName = TempData["LastName"] = selectedLName;
-            var str4 = ViewBag.tempdataPostalCode = TempData["PostalCode"] = selectedPostalCode; ;
-            var str5 = ViewBag.tempdataTel = TempData["Tel"] = selectedTel;
-            var str6 = ViewBag.tempdataEmail = TempData["Email"] = selectedEmail;
-            var str7 = TempData["Title"] = title;
+            ReportsViewModel VM = new();
+            VM.Id = selectedId;
+            VM.FirstName = selectedFName;
+            VM.LastName = selectedLName;
+            VM.PostalCode = selectedPostalCode; ;
+            VM.Tel = selectedTel;
+            VM.Email = selectedEmail;
+            VM.Title = title;
 
-           
-            return View();
+            ViewBag.tempdataId = TempData["Id"] = selectedId;
+            ViewBag.tempdataFName = TempData["FirstName"] = selectedFName;
+            ViewBag.tempdataLName = TempData["LastName"] = selectedLName;
+            ViewBag.tempdataPostalCode = TempData["PostalCode"] = selectedPostalCode;
+            ViewBag.tempdataTel = TempData["Tel"] = selectedTel;
+            ViewBag.tempdataEmail = TempData["Email"] = selectedEmail;
+            TempData["Title"] = title;
+
+            return View(VM);
         }
 
-        public async Task<IActionResult> PrintPdf(List<object[]> data)
+        public async Task<IActionResult> PrintPdf(List<object> data)
         {
            
                 var LReportTitle = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build().GetSection("AppSettings")["ReportTitle"];
 
                 Stimulsoft.Report.StiReport report = new Stimulsoft.Report.StiReport();
-                report.Load(_hostingEnvironment.ContentRootPath + "\\Reports\\LawyerCertificateStatistic.mrt");
+                report.Load(_hostingEnvironment.ContentRootPath + "\\Reports\\AzmoonReports.mrt");
 
                
                 //this LawyerCertificateStatistic table name should be in stimulsoft for reporting
-                report.RegData("AzmoonReports", data: data.ToList());
+                report.RegData("Tbl_Applicant", data: data);
 
 
                 report.Dictionary.Variables["TitleL1"].Value = LReportTitle; //from appsettings.json
