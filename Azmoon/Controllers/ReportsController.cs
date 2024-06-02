@@ -50,11 +50,10 @@ namespace Azmoon.Controllers
 
                
                 //this LawyerCertificateStatistic table name should be in stimulsoft for reporting
-                report.RegData("Tbl_Applicant", data: data);
+                report.RegData("AzmoonReports", data: data);
 
-
-                report.Dictionary.Variables["TitleL1"].Value = LReportTitle; //from appsettings.json
-                report.Dictionary.Variables["TitleL2"].Value = "گزارش آماری وکلا";
+            ReportsViewModel model=new ReportsViewModel();
+                report.Dictionary.Variables["Title"].Value = model.Title; 
 
 
                 //report.Dictionary.Variables["imgArm"].ValueObject = Stimulsoft.Base.Drawing.StiImageFromURL.LoadBitmap(Directory.GetCurrentDirectory() + "/wwwroot/images/Arm.png");
@@ -62,12 +61,9 @@ namespace Azmoon.Controllers
                 report.Dictionary.Variables["ReportDate"].Value = DateTime.Now + " - " +
                                                              DateTime.Now.TimeOfDay.ToString().Substring(0, 8);
 
-                //var stiDatamonitor=new stidatamo
-                //var res = report.ResponseAsPdf(report);
                 await report.RenderAsync();
                 string fullPath = await SaveReportAsync(report);
                 var res = report.ExportDocument(StiExportFormat.Pdf, fullPath);
-                //string fullPath = await SaveReportAsync(report);
 
                 var stream = new FileStream(fullPath, FileMode.Open);
                 return new FileStreamResult(stream, "application/pdf");
@@ -100,8 +96,6 @@ namespace Azmoon.Controllers
             var fullPath = Path.Combine(pathToSave, fileName + extensionFile);
             //await System.IO.File.WriteAllBytesAsync(fullPath, res.SaveDocumentToByteArray());
             return fullPath;
-
-
         }
 
     }
