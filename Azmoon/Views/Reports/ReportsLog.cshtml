@@ -1,0 +1,69 @@
+﻿@{
+    var title = TempData["Title"] as string;
+
+    var intId = ViewBag.tempdataId as List<int>;
+    var stringFirstName = ViewBag.tempdataFName as List<string>;
+    var stringLastName = ViewBag.tempdataLName as List<string>;
+    var stringPostalCode = ViewBag.tempdataPostalCode as List<string>;
+    var stringTel = ViewBag.tempdataTel as List<string>;
+    var stringEmail = ViewBag.tempdataEmail as List<string>;
+
+    var combinedList = new List<object>();
+
+    if (intId != null)
+    {
+        combinedList.AddRange(intId.Select(i => i.ToString()));
+    }
+    if (stringFirstName != null)
+    {
+        combinedList.AddRange(stringFirstName.Select(i => i.ToString()));
+    }
+    if (stringLastName != null)
+    {
+        combinedList.AddRange(stringLastName.Select(i => i.ToString()));
+    }
+    if (stringPostalCode != null)
+    {
+        combinedList.AddRange(stringPostalCode.Select(i => i.ToString()));
+    }
+    if (stringTel != null)
+    {
+        combinedList.AddRange(stringTel.Select(i => i.ToString()));
+    }
+    if (stringEmail != null)
+    {
+        combinedList.AddRange(stringEmail.Select(i => i.ToString()));
+    }
+}
+<body>
+
+    <div class="card-header bg-secondary bg-gradient m-lg-0 py-3">
+        <div class="row">
+            <h1 class="text-white">Reports</h1>
+        </div>
+    </div>
+    <div class="container row mt-4 mb-4">
+            <div class="col-6">
+                <span>Title:</span>
+                <input class="border" value="@title" readonly> </input>
+            </div>
+            <div class="col-6">
+                <select class="container">
+
+                    @foreach (object item in combinedList.ToList())
+                    {
+                        <option hidden>Reports is here</option>
+                        <option>@item</option>
+                    }
+
+                </select>
+            </div>
+    </div>
+    <div class="container col-3 ">
+        <a asp-action="GetAllDatas" asp-controller="AzmoonTest" class="btn btn-danger mt-3">Back</a>
+    </div>
+    <div class="container col-3 ">
+        <a href="@Url.Action("PrintPdf","Reports" , new {data=combinedList.ToList()})" class="btn btn-warning mt-3">Report</a>
+    </div>
+</body>
+

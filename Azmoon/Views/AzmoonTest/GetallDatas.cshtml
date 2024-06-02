@@ -1,0 +1,48 @@
+﻿@model IEnumerable<TblApplicant>
+
+<div class=" container card shadow border-0 mt-4">
+    <div class="card-header bg-secondary bg-gradient m-lg-0 py-3">
+        <div class="row">
+            <h1 class="text-white">All Data</h1>
+        </div>
+    </div>
+</div>
+<div class="card-body p-4">
+    <form method="post" id="checkboxForm" action="/Reports/ReportsLog">
+        <table id="tblData" class="table table-bordered table-striped pt-3" style="width:100%">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>PostalCode</th>
+                    <th>Tel</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id<input name="selectedId" type="checkbox" class="rowCheckbox" value="@item.Id"></td>
+                        <td>@item.FirstName<input name="selectedFName" type="checkbox" class="rowCheckbox" value="@item.FirstName"></td>
+                        <td>@item.LastName<input name="selectedLName" type="checkbox" class="rowCheckbox" value="@item.LastName"></td>
+                        <td>@item.PostalCode<input name="selectedPostalCode" type="checkbox" class="rowCheckbox" value="@item.PostalCode"></td>
+                        <td>@item.Tel<input name="selectedTel" type="checkbox" class="rowCheckbox" value="@item.Tel"></td>
+                        <td>@item.Email<input name="selectedEmail" type="checkbox" class="rowCheckbox" value="@item.Email"></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <input type="hidden" id="checkboxValues" name="chekboxValues" runat="server" />
+        <div class="container row p-lg-4">
+            <h4>Write your title...</h4>
+            <textarea name="title" placeholder="Write the Title..."></textarea>
+        </div>
+        <div class="container col-3 ">
+            <button class="btn btn-success" type="submit">Operate !</button>
+        </div>
+
+    </form>
+</div>
+
