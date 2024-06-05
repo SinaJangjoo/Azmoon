@@ -29,58 +29,67 @@ namespace Azmoon.Controllers
             VM.Email = selectedEmail;
             VM.Title = title;
 
-            ViewBag.tempdataId = TempData["Id"] = selectedId;
-            ViewBag.tempdataFName = TempData["FirstName"] = selectedFName;
-            ViewBag.tempdataLName = TempData["LastName"] = selectedLName;
-            ViewBag.tempdataPostalCode = TempData["PostalCode"] = selectedPostalCode;
-            ViewBag.tempdataTel = TempData["Tel"] = selectedTel;
-            ViewBag.tempdataEmail = TempData["Email"] = selectedEmail;
-            TempData["Title"] = title;
+            var combinedList = new List<string>();
+
+            if (VM.Id != null)
+            {
+                combinedList.AddRange(VM.Id.Select(i => i.ToString()));
+            }
+            if (VM.FirstName != null)
+            {
+                combinedList.AddRange(VM.FirstName.Select(i => i.ToString()));
+            }
+            if (VM.LastName != null)
+            {
+                combinedList.AddRange(VM.LastName.Select(i => i.ToString()));
+            }
+            if (VM.PostalCode != null)
+            {
+                combinedList.AddRange(VM.PostalCode.Select(i => i.ToString()));
+            }
+            if (VM.Tel != null)
+            {
+                combinedList.AddRange(VM.Tel.Select(i => i.ToString()));
+            }
+            if (VM.Email != null)
+            {
+                combinedList.AddRange(VM.Email.Select(i => i.ToString()));
+            }
+            
+            TempData["tle"] = VM.Title;
 
             return View(VM);
         }
 
-        public async Task<IActionResult> PrintPdf(List<object> data)
+        public async Task<IActionResult> PrintPdf(List<string> data)
         {
-           
-                var LReportTitle = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build().GetSection("AppSettings")["ReportTitle"];
 
-                Stimulsoft.Report.StiReport report = new Stimulsoft.Report.StiReport();
-                report.Load(_hostingEnvironment.ContentRootPath + "\\Reports\\AzmoonReports.mrt");
+            var LReportTitle = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build().GetSection("AppSettings")["ReportTitle"];
 
-               
-                //this LawyerCertificateStatistic table name should be in stimulsoft for reporting
-                report.RegData("AzmoonReports", data: data);
-
-            ReportsViewModel model=new ReportsViewModel();
-                report.Dictionary.Variables["Title"].Value = model.Title; 
+            Stimulsoft.Report.StiReport report = new Stimulsoft.Report.StiReport();
+            report.Load(_hostingEnvironment.ContentRootPath + "\\Reports\\AzmoonReports.mrt");
 
 
-                //report.Dictionary.Variables["imgArm"].ValueObject = Stimulsoft.Base.Drawing.StiImageFromURL.LoadBitmap(Directory.GetCurrentDirectory() + "/wwwroot/images/Arm.png");
+            //this LawyerCertificateStatistic table name should be in stimulsoft for reporting
+            report.RegData("AzmoonReports", data: data);
 
-                report.Dictionary.Variables["ReportDate"].Value = DateTime.Now + " - " +
+            //ReportsViewModel model = new ReportsViewModel();
+            //report.Dictionary.Variables["Title"].Value =Convert.ToString( TempData["tle"]);
+
+
+            //report.Dictionary.Variables["imgArm"].ValueObject = Stimulsoft.Base.Drawing.StiImageFromURL.LoadBitmap(Directory.GetCurrentDirectory() + "/wwwroot/images/Arm.png");
+
+            report.Dictionary.Variables["ReportDate"].Value = DateTime.Now + " - " +
                                                              DateTime.Now.TimeOfDay.ToString().Substring(0, 8);
 
-                await report.RenderAsync();
-                string fullPath = await SaveReportAsync(report);
-                var res = report.ExportDocument(StiExportFormat.Pdf, fullPath);
+            await report.RenderAsync();
+            string fullPath = await SaveReportAsync(report);
+            var res = report.ExportDocument(StiExportFormat.Pdf, fullPath);
 
-                var stream = new FileStream(fullPath, FileMode.Open);
-                return new FileStreamResult(stream, "application/pdf");
-            
+            var stream = new FileStream(fullPath, FileMode.Open);
+            return new FileStreamResult(stream, "application/pdf");
+
         }
-
-        //public IActionResult ExportPdf()
-        //{
-        //    var report = this.GetReport();
-        //    return StiNetCoreReportResponse.ResponseAsPdf(report);
-        //}
-
-        //public IActionResult ExportXls()
-        //{
-        //    var report = this.GetReport();
-        //    return StiNetCoreReportResponse.ResponseAsXls(report);
-        //}
 
         public static async Task<string> SaveReportAsync(StiReport res)
         {
