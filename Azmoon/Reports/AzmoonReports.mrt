@@ -95,7 +95,7 @@
               <Name>Text1</Name>
               <Page isRef="4" />
               <Parent isRef="5" />
-              <Text>{TitleL1}</Text>
+              <Text>{Title}</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
@@ -443,10 +443,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>6/2/2024 1:37:33 PM</ReportChanged>
+  <ReportChanged>6/2/2024 2:41:48 PM</ReportChanged>
   <ReportCreated>7/14/2011 2:56:59 AM</ReportCreated>
-  <ReportFile>\\192.168.0.40\Share\MrJangjoo\LawyerCertificateStatistic.mrt</ReportFile>
-  <ReportGuid>e872beb759e94bb4bec6311a7b539c63</ReportGuid>
+  <ReportFile>C:\Users\d23\Desktop\AzmoonReports.mrt</ReportFile>
+  <ReportGuid>8defcad972c54a4ca26df72a3265e4c9</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2023.1.1.0</ReportVersion>
