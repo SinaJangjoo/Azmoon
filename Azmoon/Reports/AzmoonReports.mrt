@@ -2,63 +2,29 @@
 <StiSerializer version="1.02" type="Net" application="StiReport">
   <Dictionary Ref="1" type="Dictionary" isKey="true">
     <BusinessObjects isList="true" count="0" />
-    <Databases isList="true" count="1">
-      <MS_x0020_SQL Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
-        <Alias>MS SQL</Alias>
-        <ConnectionStringEncrypted>9NTZz09rAa1gW6Xc6djrY9F4z4nfCqOFRnjt9PDs4XvCcNsLS1mrzW9h1dRhSSdjxMTxScZbMZ1iRKHww1yxF/Fay6FOXDHNbU2E7OVM7EPEyPsCYUtR9cxr</ConnectionStringEncrypted>
-        <Name>MS SQL</Name>
-      </MS_x0020_SQL>
-    </Databases>
+    <Databases isList="true" count="0" />
     <DataSources isList="true" count="1">
-      <Tbl_Applicant Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
-        <Alias>Tbl_Applicant</Alias>
-        <Columns isList="true" count="32">
-          <value>ORIGINAL,Id,Id,Id,System.Int32,f32dbd9323f242ef83022b4ac4e1de02</value>
-          <value>FileNo,System.String</value>
-          <value>CandidateNo,System.String</value>
+      <AzmoonReports Ref="2" type="Stimulsoft.Report.Dictionary.StiUserSource" isKey="true">
+        <Alias>AzmoonReports</Alias>
+        <Columns isList="true" count="7">
+          <value>Id,System.Int32</value>
           <value>FirstName,System.String</value>
           <value>LastName,System.String</value>
-          <value>PreLastName,System.String</value>
-          <value>AliasName,System.String</value>
-          <value>FatherName,System.String</value>
-          <value>Gender,System.Byte</value>
-          <value>MaritalStatus,System.Boolean</value>
-          <value>BirthDate,System.String</value>
-          <value>NationalNumber,System.String</value>
-          <value>BirthCertificate,System.String</value>
-          <value>BirthCertificateCity_Id,System.Int32</value>
-          <value>BirthCity_Id,System.Int32</value>
-          <value>Religion,System.Byte</value>
-          <value>LeftHanded,System.Boolean</value>
-          <value>State_Id,System.Int32</value>
-          <value>City_Id,System.Int32</value>
-          <value>Address,System.String</value>
           <value>PostalCode,System.String</value>
           <value>Tel,System.String</value>
-          <value>Mobile,System.String</value>
-          <value>WorkState_Id,System.Int32</value>
-          <value>WorkCity_Id,System.Int32</value>
-          <value>WorkAddress,System.String</value>
-          <value>WorkPostalCode,System.String</value>
-          <value>WorkTel,System.String</value>
-          <value>EssentialMobile,System.String</value>
           <value>Email,System.String</value>
-          <value>TrackingCode,System.String</value>
-          <value>MaritalCode,System.Byte</value>
+          <value>Title,System.String</value>
         </Columns>
-        <CommandTimeout>30</CommandTimeout>
         <Dictionary isRef="1" />
-        <Key>056497e27029414486e5a48c6008eed3</Key>
-        <Name>Tbl_Applicant</Name>
-        <NameInSource>MS SQL</NameInSource>
-        <Parameters isList="true" count="0" />
-        <SqlCommand>select * from Tbl_Applicant</SqlCommand>
-      </Tbl_Applicant>
+        <Key>8d9da46a41374c8e8f038a0d46c064be</Key>
+        <Name>AzmoonReports</Name>
+        <NameInSource>AzmoonReports</NameInSource>
+      </AzmoonReports>
     </DataSources>
     <Relations isList="true" count="0" />
     <Report isRef="0" />
     <Resources isList="true" count="0" />
-    <Variables isList="true" count="10">
+    <Variables isList="true" count="11">
       <value>,TitleL1,TitleL1,,System.String,,False,False,False,True</value>
       <value>,TitleL2,TitleL2,,System.String,,False,False,False,True</value>
       <value>,Reporter,Reporter,,System.String,,False,False,False,True</value>
@@ -69,6 +35,7 @@
       <value>,TextContent,TextContent,,System.String,,False,False,False,True</value>
       <value>,CondidateTypeTitle,CondidateTypeTitle,,System.String,,False,False,False,True</value>
       <value>,CompanyName,CompanyName,,System.String,,False,False,False,True</value>
+      <value>,Title1,Title1,,System.String,,True,False,False,False,,_x0030_1202df109e24ad5ad3d8dbcfc52f2ad</value>
     </Variables>
   </Dictionary>
   <EngineVersion>EngineV2</EngineVersion>
@@ -76,15 +43,15 @@
   <Key>dbaa1f16db824959a8ba218a81b5cfa6</Key>
   <MetaTags isList="true" count="0" />
   <Pages isList="true" count="1">
-    <Page1 Ref="4" type="Page" isKey="true">
+    <Page1 Ref="3" type="Page" isKey="true">
       <Border>AdvBlack;1;None;Black;1;None;Black;1;None;Black;1;None;False;4;[15:36:62]</Border>
       <Brush>Transparent</Brush>
       <Components isList="true" count="4">
-        <Header1 Ref="5" type="HeaderBand" isKey="true">
+        <Header1 Ref="4" type="HeaderBand" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,0.4,27.7,2.8</ClientRectangle>
           <Components isList="true" count="2">
-            <Text1 Ref="6" type="Text" isKey="true">
+            <Text1 Ref="5" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>1.4,1.4,25.2,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -93,14 +60,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text1</Name>
-              <Page isRef="4" />
-              <Parent isRef="5" />
-              <Text>{Title}</Text>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>{Title1}</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text1>
-            <Text2 Ref="7" type="Text" isKey="true">
+            <Text2 Ref="6" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>1.4,0.6,25.2,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -110,8 +77,8 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text2</Name>
-              <Page isRef="4" />
-              <Parent isRef="5" />
+              <Page isRef="3" />
+              <Parent isRef="4" />
               <Text>بنام خدا</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
@@ -121,15 +88,15 @@
           <Conditions isList="true" count="0" />
           <Expressions isList="true" count="0" />
           <Name>Header1</Name>
-          <Page isRef="4" />
-          <Parent isRef="4" />
+          <Page isRef="3" />
+          <Parent isRef="3" />
         </Header1>
-        <HeaderWorkOnHolidayTbl Ref="8" type="HeaderBand" isKey="true">
+        <HeaderWorkOnHolidayTbl Ref="7" type="HeaderBand" isKey="true">
           <Border>All;Black;1;Solid;False;4;Black</Border>
           <Brush>AntiqueWhite</Brush>
           <ClientRectangle>0,4,27.7,1.6</ClientRectangle>
           <Components isList="true" count="6">
-            <Text6 Ref="9" type="Text" isKey="true">
+            <Text6 Ref="8" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>25.8,0,1.9,1.6</ClientRectangle>
@@ -139,14 +106,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text6</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="3" />
+              <Parent isRef="7" />
               <Text>آیدی</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text6>
-            <Text7 Ref="10" type="Text" isKey="true">
+            <Text7 Ref="9" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>11.2,0,8.6,1.6</ClientRectangle>
@@ -157,14 +124,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text7</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="3" />
+              <Parent isRef="7" />
               <Text>آدرس الکترونیکی</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text7>
-            <Text13 Ref="11" type="Text" isKey="true">
+            <Text13 Ref="10" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>6.8,0,4.4,1.6</ClientRectangle>
@@ -175,14 +142,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text13</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="3" />
+              <Parent isRef="7" />
               <Text>تلفن</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text13>
-            <Text16 Ref="12" type="Text" isKey="true">
+            <Text16 Ref="11" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>0,0,6.8,1.6</ClientRectangle>
@@ -193,14 +160,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text16</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="3" />
+              <Parent isRef="7" />
               <Text>کد پستی</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text16>
-            <Text18 Ref="13" type="Text" isKey="true">
+            <Text18 Ref="12" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>23,0,2.8,1.6</ClientRectangle>
@@ -211,14 +178,14 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text18</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="3" />
+              <Parent isRef="7" />
               <Text>نام</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text18>
-            <Text3 Ref="14" type="Text" isKey="true">
+            <Text3 Ref="13" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>19.8,0,3.2,1.6</ClientRectangle>
@@ -229,8 +196,8 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text3</Name>
-              <Page isRef="4" />
-              <Parent isRef="8" />
+              <Page isRef="3" />
+              <Parent isRef="7" />
               <Text>نام خانوادگی</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
@@ -241,15 +208,15 @@
           <Conditions isList="true" count="0" />
           <Expressions isList="true" count="0" />
           <Name>HeaderWorkOnHolidayTbl</Name>
-          <Page isRef="4" />
-          <Parent isRef="4" />
+          <Page isRef="3" />
+          <Parent isRef="3" />
         </HeaderWorkOnHolidayTbl>
-        <DataUserListTbl Ref="15" type="DataBand" isKey="true">
+        <DataUserListTbl Ref="14" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
           <BusinessObjectGuid isNull="true" />
           <ClientRectangle>0,6.4,27.7,0.8</ClientRectangle>
           <Components isList="true" count="6">
-            <DataWorkOnHolidayTbl_ID_ Ref="16" type="Text" isKey="true">
+            <DataWorkOnHolidayTbl_ID_ Ref="15" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
@@ -262,15 +229,15 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataWorkOnHolidayTbl_ID_</Name>
-              <Page isRef="4" />
-              <Parent isRef="15" />
-              <Text>{Tbl_Applicant.Id}</Text>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{AzmoonReports.Id}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </DataWorkOnHolidayTbl_ID_>
-            <DataUserListTbl_Empl_name Ref="17" type="Text" isKey="true">
+            <DataUserListTbl_Empl_name Ref="16" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
@@ -283,15 +250,15 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataUserListTbl_Empl_name</Name>
-              <Page isRef="4" />
-              <Parent isRef="15" />
-              <Text>{Tbl_Applicant.FirstName}</Text>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{AzmoonReports.FirstName}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
-              <Type>DataColumn</Type>
+              <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </DataUserListTbl_Empl_name>
-            <Text20 Ref="18" type="Text" isKey="true">
+            <Text20 Ref="17" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
@@ -304,15 +271,15 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text20</Name>
-              <Page isRef="4" />
-              <Parent isRef="15" />
-              <Text>{Tbl_Applicant.Email}</Text>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{AzmoonReports.Email}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
-              <Type>DataColumn</Type>
+              <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text20>
-            <Text21 Ref="19" type="Text" isKey="true">
+            <Text21 Ref="18" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
@@ -325,15 +292,15 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text21</Name>
-              <Page isRef="4" />
-              <Parent isRef="15" />
-              <Text>{Tbl_Applicant.Tel}</Text>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{AzmoonReports.Tel}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
-              <Type>DataColumn</Type>
+              <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text21>
-            <Text23 Ref="20" type="Text" isKey="true">
+            <Text23 Ref="19" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
@@ -346,15 +313,15 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text23</Name>
-              <Page isRef="4" />
-              <Parent isRef="15" />
-              <Text>{Tbl_Applicant.PostalCode}</Text>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{AzmoonReports.PostalCode}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
-              <Type>DataColumn</Type>
+              <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text23>
-            <Text4 Ref="21" type="Text" isKey="true">
+            <Text4 Ref="20" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
@@ -367,12 +334,12 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text4</Name>
-              <Page isRef="4" />
-              <Parent isRef="15" />
-              <Text>{Tbl_Applicant.LastName}</Text>
+              <Page isRef="3" />
+              <Parent isRef="14" />
+              <Text>{AzmoonReports.LastName}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
-              <Type>DataColumn</Type>
+              <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text4>
           </Components>
@@ -382,15 +349,15 @@
           <Expressions isList="true" count="0" />
           <Filters isList="true" count="0" />
           <Name>DataUserListTbl</Name>
-          <Page isRef="4" />
-          <Parent isRef="4" />
+          <Page isRef="3" />
+          <Parent isRef="3" />
           <Sort isList="true" count="0" />
         </DataUserListTbl>
-        <FooterBand1 Ref="22" type="FooterBand" isKey="true">
+        <FooterBand1 Ref="21" type="FooterBand" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,8,27.7,0.8</ClientRectangle>
           <Components isList="true" count="1">
-            <Text29 Ref="23" type="Text" isKey="true">
+            <Text29 Ref="22" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>0,0,27.6,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -399,8 +366,8 @@
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text29</Name>
-              <Page isRef="4" />
-              <Parent isRef="22" />
+              <Page isRef="3" />
+              <Parent isRef="21" />
               <Text>شرکت پویا رایانه دنا</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
@@ -410,8 +377,8 @@
           <Conditions isList="true" count="0" />
           <Expressions isList="true" count="0" />
           <Name>FooterBand1</Name>
-          <Page isRef="4" />
-          <Parent isRef="4" />
+          <Page isRef="3" />
+          <Parent isRef="3" />
           <PrintOn>OnlyLastPage</PrintOn>
         </FooterBand1>
       </Components>
@@ -426,7 +393,7 @@
       <PaperSize>A4</PaperSize>
       <Report isRef="0" />
       <RightToLeft>True</RightToLeft>
-      <Watermark Ref="24" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+      <Watermark Ref="23" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
         <Font>Microsoft Sans Serif,10,Bold,Point,False,178</Font>
         <TextBrush>[50:0:0:0]</TextBrush>
       </Watermark>
@@ -443,10 +410,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>6/2/2024 2:41:48 PM</ReportChanged>
+  <ReportChanged>6/5/2024 8:54:55 AM</ReportChanged>
   <ReportCreated>7/14/2011 2:56:59 AM</ReportCreated>
   <ReportFile>C:\Users\d23\Desktop\AzmoonReports.mrt</ReportFile>
-  <ReportGuid>8defcad972c54a4ca26df72a3265e4c9</ReportGuid>
+  <ReportGuid>eea719ab49ba49b6906162010a12b955</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2023.1.1.0</ReportVersion>
@@ -477,7 +444,7 @@ namespace Reports
 </Script>
   <ScriptLanguage>CSharp</ScriptLanguage>
   <Styles isList="true" count="2">
-    <Style1 Ref="25" type="Stimulsoft.Report.StiStyle" isKey="true">
+    <Style1 Ref="24" type="Stimulsoft.Report.StiStyle" isKey="true">
       <Border>All;Black;1;Solid;False;4;Black</Border>
       <Brush>WhiteSmoke</Brush>
       <Conditions isList="true" count="0" />
@@ -487,7 +454,7 @@ namespace Reports
       <NegativeTextBrush>Red</NegativeTextBrush>
       <TextBrush>Black</TextBrush>
     </Style1>
-    <Style2 Ref="26" type="Stimulsoft.Report.StiStyle" isKey="true">
+    <Style2 Ref="25" type="Stimulsoft.Report.StiStyle" isKey="true">
       <Border>All;Black;1;Solid;False;4;Black</Border>
       <Brush>AntiqueWhite</Brush>
       <Conditions isList="true" count="0" />

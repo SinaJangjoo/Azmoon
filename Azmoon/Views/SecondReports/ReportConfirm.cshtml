@@ -1,0 +1,60 @@
+﻿@using Azmoon.ViewModels
+@{
+	Layout = "_Layout";
+}
+@model SecondReportsViewModel
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>ReportConfirm</title>
+</head>
+<body>
+
+	<div class="card-header bg-secondary bg-gradient m-lg-0 py-3">
+		<div class="row">
+			<h1 class="text-white">Reports</h1>
+		</div>
+	</div>
+	<form asp-action="PreReport" method="post">
+		<div class="container row mt-4 mb-4">
+			<div class="col-6">
+				<span>Title:</span>
+				<input class="border" name="Title" value="@Model.Title" readonly />
+			</div>
+			<div class="col-6">
+
+				@if (Model.selectedColumns != null && Model.selectedColumns.Count > 0)
+				{
+					@for (int i = 0; i < Model.selectedColumns.Count; i++)
+					{
+						<input type="hidden" name="selectedColumns[@i]" value="@Model.selectedColumns[i]" />
+					}
+					<select class="container">
+						@foreach (var item in Model.selectedColumns)
+						{
+							<option hidden>Reports is here</option>
+							<option>@item</option>
+						}
+					</select>
+				}
+				else
+				{
+					<select>
+						<option selected>No item selected</option>
+					</select>
+				}
+			</div>
+		</div>
+		<div class="row justify-content-center">
+			<div class=" col-2 ">
+				<a asp-action="Index" class="btn btn-danger mt-3">Back</a>
+			</div>
+			<div class="col-2 ">
+				<button type="submit" class="btn btn-warning mt-3">Aspose Report</button>
+			</div>
+		</div>
+	</form>
+</body>
+</html>
